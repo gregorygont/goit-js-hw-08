@@ -4,7 +4,7 @@ const LOCAL_KEY = 'feedback-form-state';
 // Задаем константу LOCAL_KEY со значением 'feedback-form-state', которая будет использоваться в качестве 
 // ключа для сохранения и извлечения данных из локального хранилища.
 
-form = document.querySelector('.feedback-form');
+const form = document.querySelector('.feedback-form');
 // Получаем ссылку на форму, выбирая элемент с классом .feedback-form с помощью метода querySelector 
 // и присваиваем переменной form.
 
@@ -31,7 +31,7 @@ function onInputData(e) {
 // Функция onInputData вызывается при событии input на любом поле формы. 
 // Она обновляет объект dataForm текущими значениями полей email и message и сохраняет обновленный объект 
 // в локальное хранилище с помощью метода localStorage.setItem().
-
+onInputData();
 function reloadPage() {
   if (dataForm) {
     email.value = dataForm.email || '';
@@ -53,6 +53,7 @@ function onFormSubmit(e) {
   e.currentTarget.reset();
   dataForm = {};
 }
+onFormSubmit();
 //Функция onFormSubmit вызывается при отправке формы. Она предотвращает стандартное поведение отправки формы, 
 //выводит значения email и message в консоль. Затем она проверяет, заполнены ли оба поля. 
 //Если хотя бы одно поле не заполнено, выводится предупреждение с помощью функции alert. 
